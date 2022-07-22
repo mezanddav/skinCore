@@ -24,6 +24,7 @@
             .box_torrent{
                 height: auto;
                 @include fbox();
+                @include fboxalignc();
                 padding: 8px 10px;
 
                 .box_nagy,
@@ -38,6 +39,7 @@
                 .box_alap_img{
                     @include fboxflex(0 0 auto);
                     font-size: 0;
+                    padding: 0 8px 0 0;
 
                     a{
                         display: block
@@ -69,6 +71,7 @@
                             left: 20px!important;
                         }
 
+                        .torrent_konyvjelzo,
                         .torrent_konyvjelzo2,
                         .torrent_unchecked,
                         .torrent_err,
@@ -77,16 +80,19 @@
                             margin: 0;
                         }
 
+                        .torrent_konyvjelzo,
                         .torrent_konyvjelzo2{
-                            top: 5px;
+                            top: 3px;
                             left: 5px;
                             width: 10px!important;
                             height: 10px;
+                            margin: 0;
+                            float: none;
                             background-position: -79px -1px;
                         }
 
                         .torrent_unchecked{
-                            top: 3px;
+                            top: 2px;
                             left: 20px;
                             width: 10px!important;
                             height: 13px;
@@ -94,7 +100,7 @@
                         }
 
                         .torrent_err{
-                            top: 3px;
+                            top: 2px;
                             left: 20px;
                             width: 10px!important;
                             height: 13px;
@@ -102,7 +108,7 @@
                         }
 
                         .torrent_ok{
-                            top: 3px;
+                            top: 2px;
                             left: 20px;
                             width: 10px!important;
                             height: 13px;

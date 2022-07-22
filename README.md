@@ -3,6 +3,6 @@
 
 It **only** works in [Chrome](https://www.google.com/chrome/) and with the `Grunge` theme.
 
-# SCSS
+## SCSS
 To generate css files:
 `sass --watch ../scss:../ --style=compressed --no-source-map`
