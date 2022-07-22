@@ -1,0 +1,14 @@
+name: Create release
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Latest release
+      uses: thedoctor0/zip-release@main
+      with:
+        type: 'zip'
+        filename: 'release.zip'
+        directory: 'releases'
+        exclusions: '*.git* /*scss/* .editorconfig .gitignore LICENSE README.md'
