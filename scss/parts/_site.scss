@@ -1,0 +1,11 @@
+#div_body{
+    padding: 40px 0 0 0;
+}
+
+#container_in{
+    @include ctn();
+
+    *{
+        width: auto!important;
+    }
+}

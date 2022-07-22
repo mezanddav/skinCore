@@ -1,0 +1,94 @@
+@mixin cf() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin ctn() {
+    width: 90%!important;
+    max-width: 1480px;
+    margin: 0 auto;
+}
+
+// https://gist.github.com/Farmatique/d88491ca4a8c75f3b39df6c71852bf5a
+
+@mixin fbox() {
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox; /* ie 10 */
+    display:-webkit-flex;
+    display: flex;
+}
+
+@mixin fboxflex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex:  $values;
+    -webkit-flex:  $values;
+    -ms-flex:  $values;
+    flex:  $values;
+}
+
+@mixin fboxdircol() {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    -webkit-box-orient: vertical; /*ie10*/
+    flex-direction: column;
+}
+
+@mixin fboxorder($val) {
+    -webkit-box-ordinal-group: $val;  
+    -moz-box-ordinal-group: $val;     
+    -ms-flex-order: $val;     
+    -webkit-order: $val;  
+    order: $val;
+}
+
+@mixin fboxalignc() {
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align:center; /* ie 10 */
+    align-items: center;
+}
+
+@mixin fboxjustifysp() {
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    -webkit-box-pack: space-between;
+    -ms-flex-pack: justify; /* ie 10 */
+    justify-content: space-between;
+}
+
+@mixin fboxjustifyc() {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center; /* ie 10 */
+    justify-content: center;
+}
+
+@mixin grid() {
+    display: -ms-grid;
+    display: grid;
+}
+
+@mixin gridcol($values) {
+    -ms-grid-template-columns: $values;
+    grid-template-columns: $values;
+}

@@ -1,0 +1,197 @@
+#main_all{
+
+    .lista_all{
+
+        .box_alcimek_all{
+            @include fbox();
+            height: auto!important;
+
+            .box_alap_utolso,
+            .box_alap{
+                @include fboxflex(1 1 auto);
+                text-align: center;
+                float: none;
+                padding: 0;
+
+                table{
+                    width: 100%!important;
+                }
+            }
+        }
+
+        .box_torrent_all{
+
+            .box_torrent{
+                height: auto;
+                @include fbox();
+                padding: 8px 10px;
+
+                .box_nagy,
+                .box_nagy2,
+                .box_alap_img{
+                    position: relative;
+                    height: auto;
+                    float: none;
+                    padding: 0;
+                }
+
+                .box_alap_img{
+                    @include fboxflex(0 0 auto);
+                    font-size: 0;
+
+                    a{
+                        display: block
+                    }
+
+                    img{
+                        height: 32px;
+                        width: 51px!important;
+                    }
+                }
+
+                .box_nagy,
+                .box_nagy2{
+                    @include fboxflex(1 1 auto);
+                    background-image: none;
+                    display: grid; 
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+                    // grid-template-rows: 1fr 1fr; 
+                    gap: 0px 0px; 
+                    grid-template-areas: 
+                        "title title title title date"
+                        "size box_d2 box_s2 box_l2 uploader"; 
+
+                    .box_nev2 {
+                        grid-area: title;
+
+                        div[id^=borito]{
+                            top: 90%!important;
+                            left: 20px!important;
+                        }
+
+                        .torrent_konyvjelzo2,
+                        .torrent_unchecked,
+                        .torrent_err,
+                        .torrent_ok{
+                            position: absolute;
+                            margin: 0;
+                        }
+
+                        .torrent_konyvjelzo2{
+                            top: 5px;
+                            left: 5px;
+                            width: 10px!important;
+                            height: 10px;
+                            background-position: -79px -1px;
+                        }
+
+                        .torrent_unchecked{
+                            top: 3px;
+                            left: 20px;
+                            width: 10px!important;
+                            height: 13px;
+                            background-position: -63px 1px;
+                        }
+
+                        .torrent_err{
+                            top: 3px;
+                            left: 20px;
+                            width: 10px!important;
+                            height: 13px;
+                            background-position: -29px 0px;
+                        }
+
+                        .torrent_ok{
+                            top: 3px;
+                            left: 20px;
+                            width: 10px!important;
+                            height: 13px;
+                            background-position: -47px 0;
+                        }
+
+                        .tabla_szoveg{
+                            position: relative;
+                            padding: 0 0 8px 5px;
+                        }
+
+                        .torrent_txt2,
+                        .torrent_txt{
+                            margin: 0;
+                            float: none;
+
+                            > a{
+                                font-size: 12px;
+                                margin: 0 0 0 33px;
+
+                                nobr{
+                                    display: none;
+                                }
+
+                                &:after{
+                                    content:attr(title);
+                                }
+                            }
+
+                            .torrent_txt_also{
+                                @include fbox();
+                                @include fboxalignc();
+                                line-height: 1;
+                                margin: 8px 0 0 0;
+                                padding: 0 0 0 1px;
+                                font-size: 11px;
+
+                                a{
+                                    font-size: inherit;
+                                }
+
+                                .infobar,
+                                .siterank{
+                                    float: none;
+                                }
+
+                                .infobar{
+                                    margin: 0;
+                                }
+
+                                .siterank{
+                                    padding: 0 0 0 8px;
+                                }
+                            }
+                        }
+                    }
+
+                    .box_feltoltve2 {
+                        grid-area: date; 
+                    }
+                    .box_meret2 {
+                        grid-area: size;
+                        text-align: left;
+                        padding: 0 0 0 5px;
+                    }
+                    .box_d2 {
+                        grid-area: box_d2;
+                    }
+                    .box_s2 {
+                        grid-area: box_s2;
+                    }
+                    .box_l2 {
+                        grid-area: box_l2;
+                    }
+                    .box_feltolto2 {
+                        grid-area: uploader;
+                    }
+
+                    .users_box_sepa{
+                        display: none;
+                    }
+
+                    >div{
+                        float: none;
+                        margin: 0;
+                        height: auto!important;
+                    }
+                }
+            }
+        }
+    }
+}
