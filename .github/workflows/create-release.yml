@@ -9,6 +9,6 @@ jobs:
       uses: thedoctor0/zip-release@main
       with:
         type: 'zip'
-        filename: 'release.zip'
+        filename: 'skinCore-latest'
         directory: 'releases'
-        exclusions: '*.git* /*scss/* .editorconfig .gitignore LICENSE README.md .gitkeep'
+        exclusions: '*.git* /*scss/* /*releases/* .editorconfig .gitignore LICENSE README.md .gitkeep'
