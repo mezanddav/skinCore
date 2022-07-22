@@ -11,4 +11,4 @@ jobs:
         type: 'zip'
         filename: 'release.zip'
         directory: 'releases'
-        exclusions: '*.git* /*scss/* .editorconfig .gitignore LICENSE README.md'
+        exclusions: '*.git* /*scss/* .editorconfig .gitignore LICENSE README.md .gitkeep'
