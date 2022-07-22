@@ -1,0 +1,12 @@
+{
+    "name": "skinCore",
+    "description": "Awesome theme for ncore.po",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [{
+        "run_at" : "document_start",
+        "matches": ["https://ncore.pro/*"],
+        "css": ["skincore.css"],
+        "js": ["skincore.js"]
+    }]
+}
