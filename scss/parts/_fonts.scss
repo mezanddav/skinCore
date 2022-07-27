@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Fira Mono Regular';
+    src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/firamono-regular.woff2') format('woff2'),
+        url('chrome-extension://__MSG_@@extension_id__/assets/fonts/firamono-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fira Mono Medium';
+    src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/firamono-medium.woff2') format('woff2'),
+        url('chrome-extension://__MSG_@@extension_id__/assets/fonts/firamono-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fira Mono Bold';
+    src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/firamono-bold.woff2') format('woff2'),
+        url('chrome-extension://__MSG_@@extension_id__/assets/fonts/firamono-bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

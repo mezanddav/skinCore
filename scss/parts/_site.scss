@@ -1,3 +1,43 @@
+body,
+html{
+    background: $color__bg!important;
+    text-shadow: none!important;
+
+    *{
+        background-image: none!important;
+    }
+}
+
+body{
+    font-family: $mff, monospace!important;
+    // font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: -.1px;
+    color: $color__font;
+
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeSpeed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "kern";
+    font-feature-settings: "kern";
+    font-kerning: normal;
+    -webkit-font-variant-ligatures: common-ligatures;
+    font-variant-ligatures: common-ligatures;
+}
+
+#main_all{
+
+    a{
+        color: $color__link;
+    
+        &:focus,
+        &:hover,
+        &:active{
+            color: darken($color__link, 10%);
+        }
+    }
+}
+
 #div_body{
     padding: 40px 0 0 0;
 }
@@ -17,5 +57,15 @@
     .lista_fej,
     .fobox_tartalom{
         background: none!important;
+    }
+
+    .fobox_fej_alone,
+    .fobox_fej{
+        font-size: 18px;
+        font-family: $bff;
+        text-align: center;
+        color: #fff;
+        padding: 0;
+        margin: 0;
     }
 }

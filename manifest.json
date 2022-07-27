@@ -1,12 +1,38 @@
 {
     "name": "skinCore",
     "description": "Awesome theme for ncore.po",
-    "version": "1.1.0-beta",
+    "version": "1.1.0",
     "manifest_version": 3,
+    "icons": {
+        "16": "assets/icons/icon16.png",
+        "48": "assets/icons/icon48.png",
+        "128": "assets/icons/icon128.png"
+    },
     "content_scripts": [{
         "run_at" : "document_start",
-        "matches": ["https://ncore.pro/*"],
-        "css": ["skincore.css"],
-        "js": ["skincore.js"]
-    }]
+        "matches": [
+            "https://ncore.pro/*"
+        ],
+        "css": [
+            "assets/skincore.css"
+        ],
+        "js": [
+            "assets/js/underscore-min.js",
+            "skincore.js"
+        ]
+    }],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/fonts/*",
+                "manifest.json"
+            ],
+            "matches": [
+                "https://ncore.pro/*"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "https://raw.githubusercontent.com/mezanddav/skinCore/*"
+    ]
 }
