@@ -1,7 +1,7 @@
 {
     "name": "skinCore",
     "description": "Awesome theme for ncore.po",
-    "version": "1.2.0",
+    "version": "1.2",
     "manifest_version": 3,
     "icons": {
         "16": "assets/icons/icon16.png",

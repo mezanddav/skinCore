@@ -36,10 +36,11 @@ var skinCore = {
     nc__box_torrent_all__class: 'box_torrent',
     nc__grunge__stylesheet: 'grunge/style',
     latest_release: ' https://github.com/mezanddav/skinCore/releases/latest',
-    manifest_latest: 'https://raw.githubusercontent.com/mezanddav/skinCore/ae72b86e29c0d5577c588bde4f0efd67a14501ec/manifest.json',
+    manifest_latest: 'https://raw.githubusercontent.com/mezanddav/skinCore/master/manifest.json',
     init: function()
     {
         if( ! this.check_dependencies() ){ return }
+        this.check_for_updates();
 
 
         // this.check_dependencies()
@@ -82,21 +83,13 @@ var skinCore = {
     },
     check_for_updates: function()
     {
-        console.log(this.get_current_plugin_version());
-        this.get_latest_plugin_version();
-    },
-    get_current_plugin_version: function()
-    {
-        var manifest = chrome.runtime.getManifest()
-        return manifest.version;
-    },
-    get_latest_plugin_version: function()
-    {
         fetch(this.manifest_latest).then(function(response)
         {
             if (response.status !== 200) { return }
             response.json().then(function(data) {
-                if ( parseFloat(this.get_current_plugin_version()) < parseFloat(data.version)){
+                console.log(parseFloat(data.version));
+                if ( parseFloat(this.get_current_plugin_version()) < parseFloat(data.version))
+                {
                     this.show_update_banner();
                 }
             });
@@ -104,9 +97,14 @@ var skinCore = {
             console.log('Fetch Error :-S', err);
         });
     },
+    get_current_plugin_version: function()
+    {
+        var manifest = chrome.runtime.getManifest()
+        return manifest.version;
+    },
     show_update_banner: function()
     {
-        document.getElementById('footer_bg').insertAdjacentHTML('beforebegin','<div class="asterisk">*</div>');
+        document.getElementById('footer_bg').insertAdjacentHTML('beforebegin','<div class="asterisk">*asdasdasd</div>');
     }
 };
 window.addEventListener('DOMContentLoaded', function(){ skinCore.init() });
