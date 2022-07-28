@@ -34,12 +34,16 @@
 
 var skinCore = {
     nc__box_torrent_all__class: 'box_torrent',
+    nc__grunge__stylesheet: 'grunge/style',
+    latest_release: ' https://github.com/mezanddav/skinCore/releases/latest',
+    manifest_latest: 'https://raw.githubusercontent.com/mezanddav/skinCore/ae72b86e29c0d5577c588bde4f0efd67a14501ec/manifest.json',
     init: function()
     {
-        // console.log('check_dependencies');
-        // this.check_dependencies();
+        if( ! this.check_dependencies() ){ return }
 
-        this.check_for_updates();
+
+        // this.check_dependencies()
+        // this.check_for_updates();
 
         // var path = window.location.pathname;
         // var page = path.split("/").pop();
@@ -62,21 +66,15 @@ var skinCore = {
     },
     check_dependencies: function()
     {
-        const nc_styles = document.styleSheets;
-        console.log(nc_styles);
-        _.each(nc_styles, function(nc_style)
-        {
-            console.log(nc_style);
-            if (nc_style.href.match("https://static.ncore.pro/styles/grunge/style_sslv11.css"))
-            {
-                console.log('false');
-                // delete skinCore;
-                // return;
-            } else 
-            {
-                console.log('true');
+        var links = document.getElementsByTagName("link");
+        for (var i = 0, l = links.length; i < l; i++) {
+            var href = links[i].getAttribute('href');
+            if(String(href).indexOf(this.nc__grunge__stylesheet) !== -1){
+                return true;
+                break;
             }
-        });
+        }
+        return false;
     },
     loader: function()
     {
@@ -84,28 +82,31 @@ var skinCore = {
     },
     check_for_updates: function()
     {
-        console.log(this.get_current_plugin_verison());
-        this.get_latest_plugin_verison();
+        console.log(this.get_current_plugin_version());
+        this.get_latest_plugin_version();
     },
-    get_current_plugin_verison: function()
+    get_current_plugin_version: function()
     {
         var manifest = chrome.runtime.getManifest()
         return manifest.version;
     },
-    get_latest_plugin_verison: function()
+    get_latest_plugin_version: function()
     {
-        const manifest_latest = 'https://raw.githubusercontent.com/mezanddav/skinCore/ae72b86e29c0d5577c588bde4f0efd67a14501ec/manifest.json';
-        console.log(manifest_latest);
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(e) {
-            if(xhr.readyState == 2 && xhr.status == 200) {
-                console.log(xhr.responseText);
-                var manifest = JSON.parse(xhr.responseText);
-                alert("Version: " + manifest.version);
-            }
-        };
-        xhr.open("GET", manifest_latest);
-        xhr.send();
+        fetch(this.manifest_latest).then(function(response)
+        {
+            if (response.status !== 200) { return }
+            response.json().then(function(data) {
+                if ( parseFloat(this.get_current_plugin_version()) < parseFloat(data.version)){
+                    this.show_update_banner();
+                }
+            });
+        }).catch(function(err) {
+            console.log('Fetch Error :-S', err);
+        });
+    },
+    show_update_banner: function()
+    {
+        document.getElementById('footer_bg').insertAdjacentHTML('beforebegin','<div class="asterisk">*</div>');
     }
 };
-skinCore.init();
+window.addEventListener('DOMContentLoaded', function(){ skinCore.init() });
